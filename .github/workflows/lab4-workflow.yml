@@ -1,7 +1,7 @@
 name: Publish Package to GitHub NPM Registry
 
 on:       
-          
+# Update the workflow to run/trigger when a release has been published          
   release:
     types: [published]  
 jobs:
@@ -10,15 +10,10 @@ jobs:
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
-        
-    
         - name: Set up Node.js
           uses: actions/setup-node@v4
           with:
             node-version: '20'
             registry-url: https://npm.pkg.github.com
-
-    
         - name: Install Dependencies
           run: npm install
-          
